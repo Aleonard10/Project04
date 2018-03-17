@@ -45,16 +45,21 @@ void dstack::push(double value)
 
 }
 
-void dstack::pop(double &value)
+bool dstack::pop(double &value)
 {
-
-    Node *temp = m_head;
-    value = temp->m_value;
-    m_head = temp->m_next;
-    delete(temp);
-    Size--;
-    return;
-
+    if (dstack::size() == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        Node *temp = m_head;
+        value = temp->m_value;
+        m_head = temp->m_next;
+        delete(temp);
+        Size--;
+        return 1;
+    }
 
 }
 
@@ -87,4 +92,16 @@ void dstack::print()
 int dstack::size()
 {
     return Size;
+}
+void dstack::setSize(bool addOrSubtract)
+{
+    if (addOrSubtract == 1)
+    {
+        Size++;
+    }
+    else if (addOrSubtract == 0)
+    {
+        Size--;
+    }
+    return;
 }
