@@ -7,10 +7,11 @@ class dstack
         dstack();
         ~dstack();
         void push(double value);
-        void pop(double &value);
+        bool pop(double &value);
         bool empty();
         void print();
         int size();
+        void setSize(bool addOrSubtract);
 
 
 
